@@ -1,0 +1,25 @@
+server:
+  port: 8080
+  startDelay: 5
+  shutdownDelay: 5
+health:
+  status: 200
+  body: 'OK'
+  delay: 0
+readiness: 
+  status: 200
+  body: 'OK'
+  delay: 0
+resources:
+  cpu:
+    target: 1
+    step: 0.1
+    interval: 5
+  memory:
+    target: 1G
+    step: 100M
+    interval: 5
+  storage:
+    target: 1G
+    step: 100M
+    interval: 5

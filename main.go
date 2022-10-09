@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/moser-ss/cavy/routes"
 )
 
 func main() {
@@ -19,6 +20,7 @@ func main() {
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.SendString("Hello World! I am Cavy!")
 	})
+	routes.HealthRouter(app)
 	log.Println("Starting Cavy")
 	sd := config.Server.StartDelay
 	if sd != 0 {
@@ -37,8 +39,14 @@ func main() {
 			time.Sleep(time.Duration(ssd) * time.Second)
 
 		}
-		app.Shutdown()
+		err := app.Shutdown()
+		if err != nil {
+			log.Panic(err)
+		}
 	}()
 
-	app.Listen(":3000")
+	err := app.Listen(":3000")
+	if err != nil {
+		log.Panic(err)
+	}
 }

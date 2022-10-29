@@ -8,19 +8,21 @@ import (
 	"time"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/moser-ss/cavy/routes"
+	"github.com/moser-ss/cavy/api/routes"
+	"github.com/moser-ss/cavy/pkg/config"
 )
 
 func main() {
 	app := fiber.New()
-	config, _ := LoadConfig()
+	config, _ := config.LoadConfig()
 
 	log.Printf("%+v\n", config)
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.SendString("Hello World! I am Cavy!")
 	})
-	routes.HealthRouter(app)
+	routes.HealthRouter(app, config.Health)
+	routes.ReadinessRouter(app, config.Readiness)
 	log.Println("Starting Cavy")
 	sd := config.Server.StartDelay
 	if sd != 0 {

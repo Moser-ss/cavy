@@ -1,15 +1,15 @@
 server:
   port: 8080
-  startDelay: 5
-  shutdownDelay: 5
+  startDelay: 0
+  shutdownDelay: 0
 health:
+  status: 202
+  body: "I am Fine"
+  delay: 1
+readiness:
   status: 200
-  body: 'OK'
-  delay: 0
-readiness: 
-  status: 200
-  body: 'OK'
-  delay: 0
+  body: "OK"
+  delay: 1
 resources:
   cpu:
     target: 1

@@ -46,3 +46,6 @@ go.work
 # End of https://www.toptal.com/developers/gitignore/api/go,linux
 
 cavy
+
+# files related with air execution
+/tmp/*

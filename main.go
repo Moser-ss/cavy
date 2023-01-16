@@ -30,6 +30,7 @@ func main() {
 		time.Sleep(time.Duration(sd) * time.Second)
 
 	}
+	cpul := cpuLoader.New(config.Resources.Cpu)
 	c := make(chan os.Signal, 1)
 	signal.Notify(c, syscall.SIGINT, syscall.SIGTERM)
 	go func() {

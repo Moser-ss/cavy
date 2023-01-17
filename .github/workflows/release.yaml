@@ -1,3 +1,4 @@
+name: Release flow
 on:
   push:
     tags:

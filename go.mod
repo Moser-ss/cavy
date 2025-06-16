@@ -3,7 +3,7 @@ module github.com/moser-ss/cavy
 go 1.21.0
 
 require (
-	github.com/gofiber/fiber/v2 v2.52.7
+	github.com/gofiber/fiber/v2 v2.52.8
 	github.com/spf13/viper v1.20.1
 )
 
